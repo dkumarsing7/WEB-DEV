@@ -1,0 +1,52 @@
+/* Default Light Mode */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    color: #fff;
+}
+
+main {
+    width: 30rem;
+    height: 10rem;
+    border: 2px solid white;
+    position: relative;
+}
+
+.Dragon {
+    width: 1rem;
+    height: 2rem;
+    background: green;
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 0.7s alternate linear;
+}
+
+@keyframes jump {
+    0% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 20px -70px;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+.obstacle {
+    width: 1rem;
+    height: 1rem;
+    background: red;
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+}
