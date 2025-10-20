@@ -1,99 +1,197 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #fff;
-    color: #333;
-    margin: 0;
-    font: 1.2em / 1.6 sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #222;
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-}
-
-.container {
-    border: 2px solid black;
-    padding: 2rem;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    height: 70%;
-    min-width: 2rem;
-    margin-bottom: 70px;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 h1 {
-    margin: 1rem;
-    padding: 0;
-    position: sticky;
-    top: 0;
+    font-size: 2rem;
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+}
+
+.container {
+    background: #fff;
+    border: 2px solid #90caf9;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .user {
     display: flex;
-    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
     position: sticky;
-    top: 4rem;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    padding-bottom: 0.5rem;
 }
 
 input {
-    width: 80%;
-    border-radius: 1rem;
-    font-size: inherit;
+    flex: 1;
+    border: 2px solid #90caf9;
+    border-radius: 0.75rem;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 6px rgba(25, 118, 210, 0.4);
 }
 
 button {
-    border-radius: 1rem;
-    font-size: inherit;
-    padding: 0.25rem 0.5rem;
-    margin: 0.2rem;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #0d47a1;
+    transform: scale(1.05);
 }
 
 ul {
     width: 100%;
+    flex: 1;
+    overflow-y: auto;
     display: flex;
     flex-direction: column-reverse;
-    padding-left: 1.2rem;
-    overflow-y: auto;
-    row-gap: 4px;
+    gap: 0.6rem;
+    padding-right: 0.3rem;
+    padding-top: 0.2rem;
 }
 
-.task {
-    width: 100%;
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-    position: relative;
-    border: 2px solid black;
+
+/* Scrollbar styling */
+
+ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: #90caf9;
     border-radius: 1rem;
 }
 
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #90caf9;
+    border-radius: 0.75rem;
+    padding: 0.6rem 1rem;
+    position: relative;
+    transition: 0.3s ease;
+    background: #f8fbff;
+    word-wrap: break-word;
+}
+
+.task:hover {
+    background: #e3f2fd;
+    transform: translateY(-2px);
+}
+
 .checkBox {
-    width: 25px;
-    height: 25px;
-    border: 2px solid black;
-    border-radius: 0.5rem;
-    margin: 0.5rem;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #1976d2;
+    border-radius: 0.4rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
 }
 
 .close {
-    width: 25px;
-    height: 25px;
-    border-radius: 0.5rem;
-    margin: 0.5rem;
+    width: 24px;
+    height: 24px;
+    background: red;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 0.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: red;
-    color: #fff;
-    position: absolute;
-    right: 2rem;
     cursor: pointer;
-    font-size: 0.7em;
+    transition: 0.2s ease;
+    flex-shrink: 0;
+}
+
+.close:hover {
+    background: #c62828;
+}
+
+
+/* ✅ Responsive Design */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    .container {
+        padding: 1.5rem;
+        height: 75vh;
+    }
+    input,
+    button {
+        font-size: 0.9rem;
+    }
+    .task {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        width: 100%;
+        height: 80vh;
+    }
+    .user {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    input {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+    h1 {
+        font-size: 1.4rem;
+    }
+    .task {
+        flex-direction: row;
+        padding: 0.5rem;
+    }
 }
